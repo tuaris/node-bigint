@@ -13,6 +13,19 @@
             }
           }
         ],
+        ['OS=="freebsd"',
+          {
+            'include_dirs': [
+              '/usr/local/include'
+            ],
+            'link_settings': {
+              'libraries': [
+                '-L/usr/local/lib',
+                '-lgmp'
+              ]
+            }
+          }
+        ],
         ['OS=="mac"',
           {
             'link_settings': {
