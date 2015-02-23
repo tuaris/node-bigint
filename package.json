@@ -1,11 +1,11 @@
 {
     "name" : "bigint",
-    "version" : "0.4.2",
-    "description" : "Arbitrary-precision integer arithmetic using libgmp",
+    "version" : "0.4.3",
+    "description" : "Arbitrary-precision integer arithmetic using libgmp (for FreeBSD)",
     "main" : "./index.js",
     "repository" : {
         "type" : "git",
-        "url" : "http://github.com/substack/node-bigint.git"
+        "url" : "http://github.com/tuaris/node-bigint.git"
     },
     "keywords": [
         "gmp",
@@ -18,9 +18,9 @@
         "precision"
     ],
     "author" : {
-        "name" : "James Halliday",
-        "email" : "mail@substack.net",
-        "url" : "http://substack.net"
+        "name" : "Daniel Morante",
+        "email" : "daniel@morante.net",
+        "url" : "http://unibia.net"
     },
     "devDependencies" : {
         "tap" : "~0.2.5",
