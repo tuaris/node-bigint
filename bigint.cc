@@ -11,7 +11,6 @@
 #include <utility>
 
 using namespace v8;
-using namespace node;
 using namespace std;
 
 #define REQ_STR_ARG(I, VAR)							\
