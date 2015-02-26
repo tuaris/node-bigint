@@ -6,6 +6,7 @@
 
 #include <v8.h>
 #include <node.h>
+#include <node_version.h>
 #include <gmp.h>
 #include <map>
 #include <utility>
@@ -121,7 +122,13 @@ void BigInt::Initialize(v8::Handle<v8::Object> target) {
 	HandleScope scope;
 	
 	Local<FunctionTemplate> t = FunctionTemplate::New(New);
+
+#if NODE_VERSION_AT_LEAST(0,11,0)
+	v8::Isolate* isolate = v8::Isolate::GetCurrent();
+	constructor_template = Persistent<FunctionTemplate>::New(isolate, t);
+#else
 	constructor_template = Persistent<FunctionTemplate>::New(t);
+#endif
 
 	constructor_template->InstanceTemplate()->SetInternalFieldCount(1);
 	constructor_template->SetClassName(String::NewSymbol("BigInt"));
@@ -224,7 +231,7 @@ BigInt::New(const Arguments& args)
 	uint64_t base;
 
 	if(args[0]->IsExternal()) {
-		mpz_t *num = (mpz_t *) External::Unwrap(args[0]);
+		mpz_t *num = (mpz_t *) External::Cast(*args[0])->Value();
 		bigint = new BigInt(num);
 	} else {
 		int len = args.Length();
@@ -778,7 +785,12 @@ SetJSConditioner(const Arguments& args)
 {
 	HandleScope scope;
 
+#if NODE_VERSION_AT_LEAST(0,11,0)
+	v8::Isolate* isolate = v8::Isolate::GetCurrent();
+	BigInt::SetJSConditioner(Persistent<Function>::New(isolate, Local<Function>::Cast(args[0])));
+#else
 	BigInt::SetJSConditioner(Persistent<Function>::New(Local<Function>::Cast(args[0])));
+#endif
 
 	return Undefined();
 }
@@ -792,4 +804,4 @@ init (Handle<Object> target)
 	NODE_SET_METHOD(target, "setJSConditioner", SetJSConditioner);
 }
 
-NODE_MODULE(bigint, init);
+NODE_MODULE(bigint, init)
