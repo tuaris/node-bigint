@@ -11,6 +11,8 @@
 #include <utility>
 
 using namespace v8;
+using namespace node;
+using namespace std;
 
 #define REQ_STR_ARG(I, VAR)							\
 	if (args.Length()<= (I) || !args[I]->IsString())			\
@@ -52,7 +54,7 @@ using namespace v8;
 	Handle<Value> arg[1] = { External::New(*RES) };				\
 	Local<Object> VAR = constructor_template->GetFunction()->NewInstance(1, arg);
 
-class BigInt : node::ObjectWrap {
+class BigInt : ObjectWrap {
 	public:
 		static void Initialize(Handle<Object> target);
 		mpz_t *bigint_;
