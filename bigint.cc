@@ -4,8 +4,8 @@
 #include <cstring>
 #include <iostream>
 
-#include <node/v8.h>
-#include <node/node.h>
+#include <v8.h>
+#include <node.h>
 #include <gmp.h>
 #include <map>
 #include <utility>
