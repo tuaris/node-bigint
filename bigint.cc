@@ -54,7 +54,7 @@ using namespace std;
 	Handle<Value> arg[1] = { External::New(*RES) };				\
 	Local<Object> VAR = constructor_template->GetFunction()->NewInstance(1, arg);
 
-class BigInt : ObjectWrap {
+class BigInt : node::ObjectWrap {
 	public:
 		static void Initialize(Handle<Object> target);
 		mpz_t *bigint_;
