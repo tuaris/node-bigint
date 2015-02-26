@@ -11,7 +11,6 @@
 #include <utility>
 
 using namespace v8;
-using namespace std;
 
 #define REQ_STR_ARG(I, VAR)							\
 	if (args.Length()<= (I) || !args[I]->IsString())			\
