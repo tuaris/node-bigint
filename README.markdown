@@ -6,8 +6,8 @@ Arbitrary precision integral arithmetic for Node.js v0.10.x (includes FreeBSD fi
 Must use Node.js v0.10
 ----------------------
 
-This will not work in Node.js 0.12 due to the API breakage.  If you need Node.js 0.10.x 
-for FreeBSD, it can be found here: [freebsd-node-0.10](https://github.com/tuaris/freebsd-node-0.10),
+This will not work in Node.js 0.12 due to the API breakage.  If you need the Node.js 0.10.x port
+for FreeBSD, it can be found here: [www/node-0.10](https://github.com/tuaris/freebsd-node-0.10).
 
 [![build status](https://secure.travis-ci.org/substack/node-bigint.png)](http://travis-ci.org/substack/node-bigint)
 
