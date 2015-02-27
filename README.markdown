@@ -1,7 +1,7 @@
 bigint
 ======
 
-Arbitrary precision integral arithmetic for node.js!
+Arbitrary precision integral arithmetic for node.js! (includes FreeBSD fix)
 
 [![build status](https://secure.travis-ci.org/substack/node-bigint.png)](http://travis-ci.org/substack/node-bigint)
 
